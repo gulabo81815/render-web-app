@@ -15,7 +15,7 @@ db_url = os.getenv("DATABASE_URL")
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///todo.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = secret_key
+app.config['SECRET_KEY'] = "secret_key"
 
 # Database initialization
 db = SQLAlchemy(app)
@@ -142,4 +142,5 @@ def logout():
     logout_user()
     flash("You have been logged out.", "info")
     return redirect(url_for('login'))
+
 
